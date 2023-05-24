@@ -1,1 +1,10 @@
-
+%MATLAB FUNCTION FOR EULER METHOD
+Function Ret = Euler(odefun,tspan,y0)
+  n = 1001;
+  t = linspace(tspan(1),tspan(end),n);
+  y = zeros(size(y0),n)
+  for i = 1:n-1
+    h = t(i+1) - t(i);
+    y(:,i+1) = y(:,i) + h*odefun(t(i),y(i))
+  end
+end
